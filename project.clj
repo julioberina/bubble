@@ -1,6 +1,6 @@
 (defproject bubble "0.1.0-SNAPSHOT"
-  :description "FIXME: write this!"
-  :url "http://example.com/FIXME"
+  :description "A game about popping bubbles"
+  :url "https://github.com/julioberina/bubble"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
 
@@ -8,7 +8,8 @@
 
   :dependencies [[org.clojure/clojure "1.9.0"]
                  [org.clojure/clojurescript "1.10.238"]
-                 [org.clojure/core.async  "0.4.474"]]
+                 [org.clojure/core.async  "0.4.474"]
+                 [play-cljs "1.2.0"]]
 
   :plugins [[lein-figwheel "0.5.16"]
             [lein-cljsbuild "1.1.7" :exclusions [[org.clojure/clojure]]]]
@@ -29,7 +30,7 @@
                            ;; Comment this out once it no longer serves you.
                            :open-urls ["http://localhost:3449"]}
 
-                :compiler {:main bubble.core
+                :compiler {:main bubble.title-screen
                            :asset-path "js/compiled/out"
                            :output-to "resources/public/js/compiled/bubble.js"
                            :output-dir "resources/public/js/compiled/out"
@@ -43,7 +44,7 @@
                {:id "min"
                 :source-paths ["src"]
                 :compiler {:output-to "resources/public/js/compiled/bubble.js"
-                           :main bubble.core
+                           :main bubble.title-screen
                            :optimizations :advanced
                            :pretty-print false}}]}
 

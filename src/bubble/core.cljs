@@ -1,6 +1,7 @@
 (ns bubble.core
-    (:require))
+  (:require [play-cljs.core :as p]))
 
 (enable-console-print!)
 
-(js/console.log "Game coming soon...")
+(defonce game (p/create-game (.-innerWidth js/window) (.-innerHeight js/window) {:debug? false}))
+(defonce state (atom {}))
