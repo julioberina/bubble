@@ -1,6 +1,7 @@
 (ns bubble.goal-screen
   (:require [play-cljs.core :as p]
-            [bubble.core :as c]))
+            [bubble.core :as c]
+            [bubble.game-screen :as gs]))
 
 (defn level-component []
   [:fill {:color "white"}
@@ -38,4 +39,5 @@
     (on-render [this]
       (p/render c/game
         [(c/black-box-component) (c/blue-box-component) (level-component)
-         (current-goals-component) (command-component)]))))
+         (current-goals-component) (command-component)])
+      (if (= (@c/state :screen) :game) (p/set-screen c/game gs/game-screen)))))

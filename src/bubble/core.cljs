@@ -22,4 +22,5 @@
     (fn [e]
       (if (= (.-keyCode e) kc/ENTER)
         (case (@state :screen)
-          :title (swap! state assoc :screen :goal))))))
+          :title (swap! state assoc :screen :goal)
+          :goal (swap! state assoc :screen :game))))))
