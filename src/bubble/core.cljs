@@ -5,7 +5,9 @@
 (enable-console-print!)
 
 (defonce game (p/create-game (.-innerWidth js/window) (.-innerHeight js/window) {:debug? false}))
-(defonce state (atom {}))
+(defonce state (atom {:level 0
+                      :needed [1 2 3 5 7 10 15 21 27 33 44 55]
+                      :total (mapv #(* % 5) (range 1 13))}))
 
 (defn black-box-component []
   [:fill {:color "black"}
